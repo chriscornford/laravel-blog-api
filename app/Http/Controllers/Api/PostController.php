@@ -81,6 +81,16 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (! ($post = Post::find($id))) {
+            return response('', Response::HTTP_NOT_FOUND);
+        }
+
+        if ($post->author->id !== Auth::guard()->user()->id) {
+            throw new UnauthorizedException();
+        }
+
+        $post->delete();
+
+        return response('', Response::HTTP_NO_CONTENT);
     }
 }
