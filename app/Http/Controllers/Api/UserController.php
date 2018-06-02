@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 use Validator;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     /**
      * @param Request $request
@@ -26,10 +25,7 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()){
-            return response()->json(
-                ['data' => $validator->errors()],
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
+            return $this->createErrorResponse($validator->errors());
         }
 
         $user = User::create([

@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Post;
+use App\Http\Resources\Post as PostResource;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\UnauthorizedException;
 use Symfony\Component\HttpFoundation\Response;
 use Validator;
-use App\Http\Resources\Post as PostResource;
 
-class PostController extends Controller
+class PostController extends BaseController
 {
     /**
      * Store a newly created resource in storage.
@@ -30,7 +29,7 @@ class PostController extends Controller
         ]);
 
         if ($validator->fails()){
-            return response()->json(['data' => $validator->errors()], 422);
+            return $this->createErrorResponse($validator->errors());
         }
 
         $data['author_id'] = Auth::guard()->user()->id;
@@ -49,7 +48,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         if (! ($post = Post::find($id))) {
-            return response('', Response::HTTP_NOT_FOUND);
+            return $this->createNotFoundResponse();
         }
 
         if ($post->author->id !== Auth::guard()->user()->id) {
@@ -64,7 +63,7 @@ class PostController extends Controller
         ]);
 
         if ($validator->fails()){
-            return response()->json(['data' => $validator->errors()], 422);
+            return $this->createErrorResponse($validator->errors());
         }
 
         $post->fill($data);
@@ -82,15 +81,15 @@ class PostController extends Controller
     public function destroy($id)
     {
         if (! ($post = Post::find($id))) {
-            return response('', Response::HTTP_NOT_FOUND);
+            return $this->createNotFoundResponse();
         }
 
         if ($post->author->id !== Auth::guard()->user()->id) {
-            throw new UnauthorizedException();
+            return $this->createUnauthorizedResponse();
         }
 
         $post->delete();
 
-        return response('', Response::HTTP_NO_CONTENT);
+        return $this->createNoContentResponse();
     }
 }
