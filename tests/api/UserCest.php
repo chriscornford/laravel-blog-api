@@ -8,7 +8,7 @@ class UserCest
             'name' => 'Chris',
             'email' => 'chris@test.com',
             'password' => 'secret',
-            'confirm_password' => 'secret'
+            'password_confirmation' => 'secret'
         ];
 
         $I->haveHttpHeader('Content-Type', 'application/json');
