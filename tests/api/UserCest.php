@@ -1,7 +1,5 @@
 <?php
 
-use App\User;
-
 class UserCest
 {
     public function register(ApiTester $I)
@@ -20,14 +18,9 @@ class UserCest
 
     public function login(ApiTester $I)
     {
-        User::create([
-            'name' => 'Chris',
-            'email' => 'chris@test.com',
-            'password' => Hash::make('secret'),
-        ]);
-
+        $user = factory(App\User::class)->create();
         $body = [
-            'username' => 'chris@test.com',
+            'username' => $user->email,
             'password' => 'secret',
             'grant_type' => 'password',
             'client_id' => 2,
