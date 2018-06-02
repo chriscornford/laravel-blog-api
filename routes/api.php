@@ -20,10 +20,6 @@ Route::apiResource('posts', 'Api\PostController')->only([
     'store', 'update', 'destroy'
 ])->middleware('auth:api');
 
-Route::get('/posts/{id}', function ($id) {
-    return new PostResource(Post::find($id));
-});
-
-Route::get('/posts', function () {
-    return PostResource::collection(Post::paginate());
-});
+Route::apiResource('posts', 'Api\PostController')->only([
+    'index', 'show'
+]);

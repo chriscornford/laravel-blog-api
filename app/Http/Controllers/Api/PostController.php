@@ -7,16 +7,42 @@ use App\Http\Resources\Post as PostResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\UnauthorizedException;
-use Symfony\Component\HttpFoundation\Response;
 use Validator;
 
 class PostController extends BaseController
 {
+
+    /**
+     * Show a single resource.
+     *
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function show($id)
+    {
+        if (! ($post = Post::find($id))) {
+            return $this->createNotFoundResponse();
+        }
+
+        return new PostResource(Post::find($id));
+    }
+
+    /**
+     * Show a collection of resources.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index()
+    {
+        return PostResource::collection(Post::paginate());
+    }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
