@@ -23,3 +23,7 @@ Route::apiResource('posts', 'Api\PostController')->only([
 Route::get('/posts/{id}', function ($id) {
     return new PostResource(Post::find($id));
 });
+
+Route::get('/posts', function () {
+    return PostResource::collection(Post::paginate());
+});
