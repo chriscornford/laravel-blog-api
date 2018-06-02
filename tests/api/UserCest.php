@@ -12,7 +12,7 @@ class UserCest
         ];
 
         $I->haveHttpHeader('Content-Type', 'application/json');
-        $I->sendPost('/api/register', $body);
+        $I->sendPost('/api/users', $body);
         $I->seeResponseCodeIs(201);
     }
 

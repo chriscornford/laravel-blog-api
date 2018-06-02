@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 
-class RegisterController extends Controller
+class UserController extends Controller
 {
     /**
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+    public function store(Request $request)
     {
         $data = $request->all();
         $validator = Validator::make($data, [
