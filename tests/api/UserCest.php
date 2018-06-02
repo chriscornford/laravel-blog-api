@@ -6,7 +6,7 @@ class UserCest
     {
         $body = [
             'name' => 'Chris',
-            'email' => 'chris@test.com',
+            'email' => 'chrisc@test.com',
             'password' => 'secret',
             'password_confirmation' => 'secret'
         ];
@@ -18,13 +18,17 @@ class UserCest
 
     public function login(ApiTester $I)
     {
+        // TODO: Find a better way to get the client secret
+        $client = DB::table('oauth_clients')->where('id', 2)->first();
+        $clientSecret = $client->secret;
+
         $user = factory(App\User::class)->create();
         $body = [
             'username' => $user->email,
             'password' => 'secret',
             'grant_type' => 'password',
             'client_id' => 2,
-            'client_secret' => 'tUSt1FlDMB1GZfaCffuVnufCsMdtvdpRY5cinu8p'
+            'client_secret' => $clientSecret
         ];
 
         $I->haveHttpHeader('Content-Type', 'application/json');
@@ -34,13 +38,17 @@ class UserCest
 
     public function refresh(ApiTester $I)
     {
+        // TODO: Find a better way to get the client secret
+        $client = DB::table('oauth_clients')->where('id', 2)->first();
+        $clientSecret = $client->secret;
+
         $user = factory(App\User::class)->create();
         $body = [
             'username' => $user->email,
             'password' => 'secret',
             'grant_type' => 'password',
             'client_id' => 2,
-            'client_secret' => 'tUSt1FlDMB1GZfaCffuVnufCsMdtvdpRY5cinu8p'
+            'client_secret' => $clientSecret
         ];
 
         $I->haveHttpHeader('Content-Type', 'application/json');
@@ -52,7 +60,7 @@ class UserCest
             'refresh_token' => $refreshToken,
             'grant_type' => 'refresh_token',
             'client_id' => 2,
-            'client_secret' => 'tUSt1FlDMB1GZfaCffuVnufCsMdtvdpRY5cinu8p'
+            'client_secret' => $clientSecret
         ];
 
         $I->haveHttpHeader('Content-Type', 'application/json');
