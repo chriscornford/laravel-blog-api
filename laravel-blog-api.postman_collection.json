@@ -1,0 +1,727 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Laravel Blog API",
+		"_postman_id": "82020276-48e5-56e7-c8ce-1190e1f7c72a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Posts",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "{{domain}}/api/posts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "4e88f90a-401e-4148-929f-933e5913caa7",
+							"name": "201 Created",
+							"originalRequest": {
+								"url": "{{domain}}/api/posts",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"enabled": true,
+										"description": "The mime type of this content"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"enabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"enabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug-123\"\n}"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jun 2018 22:14:57 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 351,
+							"body": "{\"data\":{\"id\":60,\"title\":\"test title\",\"slug\":\"test-slug-123\",\"content\":\"test content\",\"author\":{\"id\":98,\"name\":\"Chris\",\"email\":\"chris@test.com\",\"created_at\":\"2018-06-02 22:13:10\",\"updated_at\":\"2018-06-02 22:13:10\"},\"created_at\":{\"date\":\"2018-06-02 22:14:57.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-06-02 22:14:57.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}}}"
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"request": {
+						"url": "{{domain}}/api/posts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "d8c527b6-7e80-44e1-be2d-aeed06fbeb78",
+							"name": "200 OK",
+							"originalRequest": {
+								"url": "{{domain}}/api/posts",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"enabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug\"\n}"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jun 2018 22:15:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 531,
+							"body": "{\"data\":[{\"id\":4,\"title\":\"test title\",\"slug\":\"test-slug\",\"content\":\"test content\",\"author\":null,\"created_at\":{\"date\":\"2018-06-02 20:58:25.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-06-02 20:58:25.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":5,\"title\":\"test title1\",\"slug\":\"test-slug\",\"content\":\"test content\",\"author\":{\"id\":6,\"name\":\"Chris\",\"email\":\"chris.j.cornford@gmail.com\",\"created_at\":\"2018-06-02 19:10:47\",\"updated_at\":\"2018-06-02 19:10:47\"},\"created_at\":{\"date\":\"2018-06-02 20:58:59.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-06-02 21:47:03.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":60,\"title\":\"test title\",\"slug\":\"test-slug-123\",\"content\":\"test content\",\"author\":{\"id\":98,\"name\":\"Chris\",\"email\":\"chris@test.com\",\"created_at\":\"2018-06-02 22:13:10\",\"updated_at\":\"2018-06-02 22:13:10\"},\"created_at\":{\"date\":\"2018-06-02 22:14:57.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-06-02 22:14:57.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}}],\"links\":{\"first\":\"http:\\/\\/homestead.test\\/api\\/posts?page=1\",\"last\":\"http:\\/\\/homestead.test\\/api\\/posts?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"path\":\"http:\\/\\/homestead.test\\/api\\/posts\",\"per_page\":15,\"to\":3,\"total\":3}}"
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"url": "{{domain}}/api/posts/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "0efba6f9-954e-4ab4-996a-3502f1228276",
+							"name": "200 OK",
+							"originalRequest": {
+								"url": "{{domain}}/api/posts/4",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"enabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug\"\n}"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jun 2018 22:15:30 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 307,
+							"body": "{\"data\":{\"id\":4,\"title\":\"test title\",\"slug\":\"test-slug\",\"content\":\"test content\",\"author\":null,\"created_at\":{\"date\":\"2018-06-02 20:58:25.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-06-02 20:58:25.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}}}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "{{domain}}/api/posts/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\",\n\t\"slug\": \"test-slug\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "{{domain}}/api/posts/4",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"test title\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "{{domain}}/api/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Chris\",\n\t\"email\": \"chris@test.com\",\n\t\"password\": \"test123\",\n\t\"password_confirmation\": \"test123\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "575e3043-01d3-4d43-b625-ddbf0f92fb83",
+							"name": "201 Created",
+							"originalRequest": {
+								"url": "{{domain}}/api/users",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"enabled": true,
+										"description": "The mime type of this content"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"enabled": true,
+										"description": "Mainly used to identify Ajax requests. Most JavaScript frameworks send this header with value of XMLHttpRequest"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Chris\",\n\t\"email\": \"chris@test.com\",\n\t\"password\": \"test123\",\n\t\"password_confirmation\": \"test123\"\n}"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jun 2018 22:13:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 661,
+							"body": "{\"data\":{\"name\":\"Chris\",\"email\":\"chris@test.com\",\"updated_at\":\"2018-06-02 22:13:10\",\"created_at\":\"2018-06-02 22:13:10\",\"id\":98}}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"url": "{{domain}}/oauth/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"chris@test.com\",\n\t\"password\": \"test123\",\n\t\"grant_type\": \"password\",\n\t\"client_id\": 2,\n\t\"client_secret\": \"{{client_secret}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "83f61839-f81c-4ccf-b1a9-097b61d83572",
+							"name": "200 OK",
+							"originalRequest": {
+								"url": "{{domain}}/oauth/token",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"enabled": true,
+										"description": "The mime type of this content"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"enabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"chris@test.com\",\n\t\"password\": \"test123\",\n\t\"grant_type\": \"password\",\n\t\"client_id\": 2,\n\t\"client_secret\": \"{{client_secret}}\"\n}"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jun 2018 22:13:50 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache",
+									"name": "pragma",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								}
+							],
+							"cookie": [],
+							"responseTime": 904,
+							"body": "{\"token_type\":\"Bearer\",\"expires_in\":14399,\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijk0MjBjN2VmYjg2MDc2MzZhZTBlZTEzZjBmMTY3ODRhYjM2NjNlMmRhOThiYWNmMjFlOTNjNzhkZmQ0ZGM1YzRhMWJkMzRjNmRiOWNjZTlhIn0.eyJhdWQiOiIyIiwianRpIjoiOTQyMGM3ZWZiODYwNzYzNmFlMGVlMTNmMGYxNjc4NGFiMzY2M2UyZGE5OGJhY2YyMWU5M2M3OGRmZDRkYzVjNGExYmQzNGM2ZGI5Y2NlOWEiLCJpYXQiOjE1Mjc5Nzc2MzAsIm5iZiI6MTUyNzk3NzYzMCwiZXhwIjoxNTI3OTkyMDI5LCJzdWIiOiI5OCIsInNjb3BlcyI6W119.IgVFq68lcYdE9Y-kW32MX3-e8KeM_LFyDM7SLAA6YJZYWYCZ2vXrIKjOm2FkE6sluuE_hPIawrQj9pEjxTZf2gl2QCkk61tjfoj77HLiUo5Dj_K-0RIttuSziDWJFcX1oxMSirEfDFuZKjgFakqJcX4LAPKpcH2m3Yu7PX9nTqWNj590PnEpdqYuE7zDxY0N8cg_VjD5bH3ICzqjT-IY1gmFskW9wbZQKnArzaCbaHimfdzPRisF8e9LXeNwTqnUGk_OwufFH0ohSl3k4wUAmQYux777QZNr28Bzkkho7SiS0ViagscNNR9G8rKGrnVsb063vbM5yb8vV30ZOgQlUUAExwpotRBxH9bSBLXHqP-Q1_TbzGPSTO8UTf-UH5knmmxZmQjySlMaTNpvkwoaw2ug1JRZFXvYt7Vl4OXpJooyI-DG-xL-Npd4W2WbVHmnSnBwdQh3q3AtmE9Kdysbc7p40APIlQqgovOPI_EpaN75EGUXhEpBnR1Fd2VGng3OZtTxqrmdWChVM4hth531eSPKQXIJu2LCwvs1sOYBcOwo_WAFc-55gokAp7KEpB1lJWX-KH753Qs7hWGIYhe4BxHr_ay8IPqJ-3EKcwIYYYCYjO-5Awq_A2c-MDlJOwXQRTm9rU9MTLwwzBHVBz9_UB7RbHtmlllCV6WnWJT_NUA\",\"refresh_token\":\"def50200fa8c09e793c7ea8dfffdb4cd549b44940124be51789f74e90ad237710e7e2bcbc5742969d359fc7cd3544e3cd3350849fdd596b100a6744ea22224ad5ad26da83d463ba92b132b8e180c9f7530f324a9b619d99788126d0de0553b977453e0315408aff9efec053f95c709be968c95e3aa01ce5f707426dbabd7d5df8b8bcad18ba52d3e6aa26868528c022af05a24ea279519e2e04d9a76327fff20bd07b2d5487c3b90f33d75cbca0674f554e51addaeb9556b768aa718c6f5a3375779fdfd80b20d0df7088f2fcc4e7d197d2f5b51d9a4d4bc4a1df4961a1f9519cae2ee2587ac874acada7e08df546683ce82061470fbb968800f59d4ee67c90c80ca08616aab231de11b51780f4f933374902376e02ffb1520465a16952f939f69162ed0b0b6d5ad5cafc90dfe9d948add5e6cfe816495038d0cb387faac54ade6fdf41ad4c25010f3b499f696cbe5156e29cfdf9d02a00a2e7a69f332b0214efc1a\"}"
+						}
+					]
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"url": "{{domain}}/oauth/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"refresh_token\": \"def502004eefb36253e10449bd66300f2e0f697a8bc4703cb88926d1f2db694d294140d95d32d10fdcec1216cd39930f9fc756517a73fc5368fee1a00e064dc26840f7fd0d87cdfe449adb3d8e6c469691c8b43fa42148723d2947cbe69ba1d6a9b34973d5f85bb6be499a4f7e501268503d3ee47d72171e8e2c0cf5a9c87b6bd555dec743a3b5d53c37f8f9ce5c3dc34afba2ced715009af6d4bec679a262e03b10ce06539ed9491f8d37e477e146fb2b2929ee4e75399f2149e27319016d8404ae480963e9ae76568be0dfce54a88fc9be1ff657df2d493541039fdef75abfa87f5666d2b668b38e599f6fc40f67b3085b906bdb2f4a6ecc9d93fdcb51c960de7c71110a53825ea7272349146b4973afe48c0d2d51081c17884acee87945d23313c436e6130a69d74301081045189a244fdb154d17ff2d6ba4e55875c916be98ce444e0e0961c88a3226893b0cc3970be1e9ab948ce52408905b80eced8c2ebe93\",\n\t\"grant_type\": \"refresh_token\",\n\t\"client_id\": 2,\n\t\"client_secret\": \"{{client_secret}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "483ad1b3-a8dd-45c1-b53e-13e98db513f5",
+							"name": "200 OK",
+							"originalRequest": {
+								"url": "{{domain}}/oauth/token",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"enabled": true,
+										"description": "The mime type of this content"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"enabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"refresh_token\": \"def50200fa8c09e793c7ea8dfffdb4cd549b44940124be51789f74e90ad237710e7e2bcbc5742969d359fc7cd3544e3cd3350849fdd596b100a6744ea22224ad5ad26da83d463ba92b132b8e180c9f7530f324a9b619d99788126d0de0553b977453e0315408aff9efec053f95c709be968c95e3aa01ce5f707426dbabd7d5df8b8bcad18ba52d3e6aa26868528c022af05a24ea279519e2e04d9a76327fff20bd07b2d5487c3b90f33d75cbca0674f554e51addaeb9556b768aa718c6f5a3375779fdfd80b20d0df7088f2fcc4e7d197d2f5b51d9a4d4bc4a1df4961a1f9519cae2ee2587ac874acada7e08df546683ce82061470fbb968800f59d4ee67c90c80ca08616aab231de11b51780f4f933374902376e02ffb1520465a16952f939f69162ed0b0b6d5ad5cafc90dfe9d948add5e6cfe816495038d0cb387faac54ade6fdf41ad4c25010f3b499f696cbe5156e29cfdf9d02a00a2e7a69f332b0214efc1a\",\n\t\"grant_type\": \"refresh_token\",\n\t\"client_id\": 2,\n\t\"client_secret\": \"{{client_secret}}\"\n}"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jun 2018 22:14:19 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache",
+									"name": "pragma",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								}
+							],
+							"cookie": [],
+							"responseTime": 1046,
+							"body": "{\"token_type\":\"Bearer\",\"expires_in\":14400,\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiZjljZDFlYTA2ZWJmNzJiNDcwMmMwY2E5YWJkOThiMjRmYTc0YzFmYzE1YTZhZDdkMTRjYmFhZTljOTVhOGVmODkwMjliNGRjYzZlZGI2In0.eyJhdWQiOiIyIiwianRpIjoiNGJmOWNkMWVhMDZlYmY3MmI0NzAyYzBjYTlhYmQ5OGIyNGZhNzRjMWZjMTVhNmFkN2QxNGNiYWFlOWM5NWE4ZWY4OTAyOWI0ZGNjNmVkYjYiLCJpYXQiOjE1Mjc5Nzc2NTksIm5iZiI6MTUyNzk3NzY1OSwiZXhwIjoxNTI3OTkyMDU5LCJzdWIiOiI5OCIsInNjb3BlcyI6W119.WUltM-AdkueV10BgjHD4SRGQTRjPnKVX7odYSMlxfLRabmsmDZRQdApT8t_yyfbgqB0r4ZzeNtSwvw0Ce9wd3ENSZqLpcv1hFgLjnc-BKCpDSz2BXTb-XLHRfelNgsnPWyAkkdUlpYQzNx7wtSiN4l1krfB3cfZBYmLcnFL5u6FCV-BbMDyeuheHTeOa9VlsBvLlnGic-WGe-8prx_H4Apmv2dl9BkJOmtP2QFqS34viB44ScmNpQ8ym0jAIKovsflhycoVbt0kDBV_Q7Ry_zVMeOvLC07-KPZ2vvt7AsKTKY_h2v2fXUCcZr090oQMw3vHEn79v_coDOC6imoIZUuZvVjDNBF60g8omKDAP7SlmChP043oqoJlYJD_sW-F9xSnq78gTWkU_YhWnZ2kO5TGotVrqYxMYV0p7iBZ0jQ1YDvMlmC122fOYql5Y4k6ze_pX_T6FXlpexUtNwNYZYRcfQT-xYgs47UT1s46rYTMRc6R8TYwC4ej5x2wR6z_G7V8sdljJNx0kwogsdiyJLUpixKR50TQU3fg5Tcilg5QSxrS9P9AIyjXDRP2c9OaCz6vZweUTsDQpNTNb9BcyltDEZPhePUTTKg4aW7F57UsIKePzCCgI116YrZrbOpIX_e3_Gf1bU5lxi3Cd9_jnKrDXU7OGHglL6YW2J6WifnA\",\"refresh_token\":\"def502008f274f1d1202522e4890a24d57b60b20b4835249d548b27cd86be7cf2267ef0dc64d154952539c14fc5b47772cb94e12a89f2e0a7540466217e543646293e79116feed2b556d512f8710982c126db71adaa209eef601a0d5899759d96d7254469cde01280f75f44138c7b4a832fb349759b1545b7a5ad7132894e0b359a572df73cffb3009de18040755f59097739a6fb8b48ce8a7c1e525d739147ed62dc6ca8fe12df66daad4b4361260688339d3c427b21e517540ba31875668cb644f641ff1a34b71db2192a6486fadeb122b284ac57908386e47f03cb824e8c777ecc4a50ba3e1fdd83e2f1dabf142a8dcf4b3403bc7c2a295936d636b187d8e509c02be276d76d1247248888fdcc2f84bc824c5feaf43a10f8e014bf972c481252f713f5f3b01f19e6f0dfa6158b7b5c79f7b54ebff838c2720e267db3a937216e65036f48ec8bc7d43cbf9a62d92db8f7e4428a67d2a1573667a2eaa6ae3775b0f\"}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
