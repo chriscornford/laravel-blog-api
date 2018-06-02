@@ -11,4 +11,5 @@ Packages used:
 
 References:
 * https://laravel.com/docs/5.6
+* https://laravel.com/docs/5.6/passport
 * https://codeception.com/docs/09-Data
