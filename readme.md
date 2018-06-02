@@ -7,3 +7,4 @@ Run codeception tests using `vendor/bin/codecept run`
 Packages used:
 * `codeception/codeception`
 * `laravel/passport`
+* `flow/jsonpath`
