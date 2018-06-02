@@ -31,4 +31,24 @@ class PostCest
         $I->sendPost('/api/posts', $body);
         $I->seeResponseCodeIs(201);
     }
+
+    public function show(ApiTester $I)
+    {
+        $post = factory(App\Post::class)->create();
+
+        $I->haveHttpHeader('Accept', 'application/json');
+        $I->sendGET('/api/posts/' . $post->id);
+        $I->seeResponseCodeIs(200);
+    }
+
+    public function index(ApiTester $I)
+    {
+        factory(App\Post::class)->create();
+        factory(App\Post::class)->create();
+
+        $I->haveHttpHeader('Accept', 'application/json');
+        $I->sendGET('/api/posts');
+        $I->seeResponseCodeIs(200);
+    }
+
 }
