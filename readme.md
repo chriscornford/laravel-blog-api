@@ -4,10 +4,9 @@ Simple blog API built with Laravel 5.6 utilising the new API resource tools,
 Passport was used to handle authentication using OAuth2 which uses JWT token internally.
 Includes a full suite of Codeception API tests for all endpoints.
 
-Attempted to use Behat but found the main Laravel integration package lacked support for Laravel 5.6 at this time due to this [issue](https://github.com/laracasts/Behat-Laravel-Extension/issues/78)
+Attempted to use Behat but found the main Laravel integration package lacked support for Laravel 5.6 at this time due to this [issue](https://github.com/laracasts/Behat-Laravel-Extension/issues/78).
 
-### Installation
-
+#### Installation
 1. `git clone https://github.com/chriscornford/laravel-blog-api.git`
 2. `composer install`
 3. `cp .env.example .env`
@@ -20,12 +19,17 @@ Run codeception tests using `vendor/bin/codecept run`
 
 Postman collection export can be found in the base directory.
 
-Packages used:
+##### Future improvements
+* Consolidate duplicated logic in Codeception API tests
+* Find a better way to retrieve the client secret in the tests
+* Implement a strict HATEOAS response standard such as HAL or JSON-LD
+
+##### Packages used
 * `codeception/codeception`
 * `laravel/passport`
 * `flow/jsonpath`
 
-References:
+##### Links
 * https://laravel.com/docs/5.6
 * https://laravel.com/docs/5.6/passport
-* https://codeception.com/docs/09-Data
+* https://codeception.com/docs
