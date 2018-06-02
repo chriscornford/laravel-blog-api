@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Resources\Post as PostResource;
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,10 @@ use Illuminate\Http\Request;
 
 Route::post('users', 'Api\UserController@store');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::apiResource('posts', 'Api\PostController')->only([
+    'store', 'update', 'destroy'
+])->middleware('auth:api');
+
+Route::get('/posts/{id}', function ($id) {
+    return new PostResource(Post::find($id));
 });
