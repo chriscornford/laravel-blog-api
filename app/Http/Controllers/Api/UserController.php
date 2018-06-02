@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 use Validator;
 
 class UserController extends Controller
@@ -25,7 +26,10 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()){
-            return response()->json(['data' => $validator->errors()], 422);
+            return response()->json(
+                ['data' => $validator->errors()],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
         }
 
         $user = User::create([
@@ -34,6 +38,6 @@ class UserController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        return response()->json(['data' => $user], 201);
+        return response()->json(['data' => $user], Response::HTTP_CREATED);
     }
 }
